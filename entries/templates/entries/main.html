@@ -9,8 +9,19 @@
     <link rel="stylesheet" href="{% static 'css/diary.css' %}">
 </head>
 <body>
-    <h1><a href="/">Dear Author</a></h1>
+    <h1><a href="/">My Deary..!!</a></h1>
+    {% if messages %}
+        <ui class="messages">
+            {% for message in messages %}
+                <li class="message">
+                    {{message}}
+                </li>
+            {% endfor %}
+        </ui>
+    {% endif %}
 
     {% block content %}{% endblock %}
+
+    <button><a href="{% url 'admin:logout' %}">Logout</a></button>
 </body>
 </html>
